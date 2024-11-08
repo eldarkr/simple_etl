@@ -3,10 +3,10 @@ from db import connect_to_db, setup_db
 
 def load_data_to_db(data: list[dict]) -> None:
     """Load data to the database
-    
     Calls `setup_db()` to ensure the database structure is in place, 
     then iterates through the data and inserts each row.
     """
+    
     conn = connect_to_db()
     
     if not conn:

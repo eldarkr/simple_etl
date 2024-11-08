@@ -2,14 +2,8 @@ from utils import is_valid_email, _format_date, get_email_domain
 
 
 def transform_data(data: list[dict]) -> list[dict]:
-    """Remove invalid emails and format signup date
-
-    Args:
-        data (list[dict]): list of dictionaries with user data
-
-    Returns:
-        list[dict]: list of dictionaries with valid emails and formatted signup date
-    """
+    """Remove invalid emails and format signup date"""
+    
     transformed_data = []
     
     for record in data:

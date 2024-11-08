@@ -15,6 +15,7 @@ def connect_to_db():
     To fix the issue that container with DB is not ready when the ETL starts
     added a trivial retry loop, probaly not the best solution but it works
     """
+    
     for _ in range(5):
         try:
             connection = psycopg2.connect(
@@ -31,11 +32,8 @@ def connect_to_db():
 
 
 def setup_db(connection: PgConnection) -> None:
-    """Sets up the database by creating necessary tables
-
-    Args:
-        connection (PgConnection): a connection to the database
-    """
+    """Sets up the database by creating necessary tables"""
+    
     try:
         with open('sql_queries/create_table.sql', 'r') as file:
             create_table_query = file.read()

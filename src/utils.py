@@ -6,8 +6,9 @@ from email_validator import validate_email, EmailNotValidError
 fake = Faker()
 
 
-# Generate a CSV file with fake user data
 def generate_fake_users_csv(csv_file: str) -> None:
+    """Generate a CSV file with fake user data"""
+    
     num_records = 1010
     columns = ["user_id", "name", "email", "signup_date"]
     
@@ -29,13 +30,15 @@ def generate_fake_users_csv(csv_file: str) -> None:
             writer.writerow([user_id, name, email, signup_date])
 
 
-# Format date from timestamp to YYYY-MM-DD
 def _format_date(date: str) -> str:
+    """Format the date from timestamp to YYYY-MM-DD"""
+    
     return date.split(" ")[0]
 
 
-# Check if an email is valid
 def is_valid_email(email: str) -> bool:
+    """Check if an email is valid"""
+    
     try:
         validate_email(email)
         return True
@@ -43,6 +46,7 @@ def is_valid_email(email: str) -> bool:
         return False
 
 
-# Get the domain of an email
 def get_email_domain(email: str) -> str:
+    """Extract the domain from an email address"""
+    
     return email.split("@")[1]
